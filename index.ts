@@ -23,8 +23,8 @@ module TSHelpers {
         }
     }
 
-    export function Output(direction: string = '&') {
-        return Input(direction);
+    export function Output(name: string = '') {
+        return Input(`&name`);
     }
 
     export interface $OnInit {

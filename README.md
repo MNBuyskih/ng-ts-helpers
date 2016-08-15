@@ -25,9 +25,18 @@ After:
 ```typescript
 @TSHelpers.Component({templateUrl: 'myComponent.html'})
 class MyComponent{
-    @TSHelpers.Input() attribute:string;
-    @TSHelpers.Output() onSave:string;
-    @TSHelpers.Require('^ngModel') model:MyModel;
+    @TSHelpers.Input(/*
+        '<' (default), '=', '@'
+        add '?' if it is non required
+        add custom name in the end
+    */) attribute:string;
+    @TSHelpers.Output(/*
+        set '?' if it is non required
+        add custom out name
+    */) onSave:string;
+    @TSHelpers.Require(
+        '^ngModel' // any valid name
+    ) model:MyModel;
 }
 
 angular
