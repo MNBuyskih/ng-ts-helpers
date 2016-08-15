@@ -17,14 +17,39 @@ module TSHelpers {
         }
     }
 
-    export function Input(direction: string = '<') {
+    export function Input(direction: string)
+    export function Input(nonRequired: boolean)
+    export function Input(direction: string, customOut: string)
+    export function Input(direction: string, nonRequired: boolean, customOut: string)
+    export function Input(direction: any = '<', nonRequired: any = false, customOut: string = '') {
+        if (typeof direction == "boolean") {
+            nonRequired = direction;
+            direction = '<';
+        }
+        if (typeof direction == 'string' && typeof nonRequired == 'string') {
+            customOut = nonRequired;
+            nonRequired = false;
+        }
+
+        let value = direction;
+        if (nonRequired) value += '?';
+        if (customOut) value += customOut;
+
         return function (obj, name) {
-            addProperty(obj, name, direction);
+            addProperty(obj, name, value);
         }
     }
 
-    export function Output(name: string = '') {
-        return Input(`&name`);
+    export function Output(name: string)
+    export function Output(nonRequired: boolean)
+    export function Output(name: any, nonRequired: boolean)
+    export function Output(name: any = '', nonRequired: boolean = false) {
+        if (typeof name == 'boolean') {
+            nonRequired = name;
+            name = '';
+        }
+
+        return Input('&', nonRequired, name);
     }
 
     export interface $OnInit {
