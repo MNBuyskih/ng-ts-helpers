@@ -1,0 +1,22 @@
+{
+  "name": "ng-ts-helpers",
+  "homepage": "https://github.com/MNBuyskih/ng-ts-helpers",
+  "authors": [
+    "MNB <buyskih@gmail.com>"
+  ],
+  "description": "Use Angular2 TypeScript decorators in Angular1",
+  "main": "index.ts",
+  "keywords": [
+    "angular",
+    "typescript",
+    "decorators"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
