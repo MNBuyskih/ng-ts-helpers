@@ -2,8 +2,8 @@ module TSHelpers {
     import IComponentOptions = angular.IComponentOptions;
     export function Component(options: IComponentOptions): Function {
         return (controller: Function) => {
-            if (controller.prototype.$componentOptions)
-                angular.extend(options, controller.prototype.$componentOptions);
+            if (controller.prototype.$$componentOptions)
+                angular.extend(options, controller.prototype.$$componentOptions);
 
             if (!options.controllerAs) options.controllerAs = 'vm';
 
@@ -32,9 +32,9 @@ module TSHelpers {
     }
 
     function addProperty(obj, property, value, core = 'bindings') {
-        if (!obj['$componentOptions']) obj['$componentOptions'] = {};
-        if (!obj['$componentOptions'][core]) obj['$componentOptions'][core] = {};
-        obj['$componentOptions'][core][property] = value;
+        if (!obj['$$componentOptions']) obj['$$componentOptions'] = {};
+        if (!obj['$$componentOptions'][core]) obj['$$componentOptions'][core] = {};
+        obj['$$componentOptions'][core][property] = value;
         return obj;
     }
 }
