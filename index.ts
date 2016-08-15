@@ -17,6 +17,7 @@ module TSHelpers {
         }
     }
 
+    export function Input()
     export function Input(direction: string)
     export function Input(nonRequired: boolean)
     export function Input(direction: string, customOut: string)
@@ -40,6 +41,7 @@ module TSHelpers {
         }
     }
 
+    export function Output()
     export function Output(name: string)
     export function Output(nonRequired: boolean)
     export function Output(name: any, nonRequired: boolean)
