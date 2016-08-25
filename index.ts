@@ -1,5 +1,7 @@
 module TSHelpers {
     import IComponentOptions = angular.IComponentOptions;
+    import IDirective = angular.IDirective;
+
     export function Component(options: IComponentOptions): Function {
         return (controller: Function) => {
             if (controller.prototype.$$componentOptions)
@@ -7,6 +9,12 @@ module TSHelpers {
 
             if (!options.controllerAs) options.controllerAs = 'vm';
 
+            return angular.extend(options, {controller});
+        }
+    }
+
+    export function Directive(options: IDirective = {}): Function {
+        return (controller: Function) => {
             return angular.extend(options, {controller});
         }
     }
